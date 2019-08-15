@@ -1,0 +1,109 @@
+\documentclass[11pt,dvipdfmx,openany]{jsbook}
+    \usepackage[dvipdfm,b5j,truedimen]{geometry}
+    \geometry{textwidth=47zw,lines=36,centering}
+    % \setlength{\evensidemargin}{\oddsidemargin}
+    %title
+    \title{くりくりすーがくれっすん\\～AIのための数学第一歩～}
+    \author{文: いりす, 絵: 海牛}
+    \date{\today}
+    \usepackage[dvipdfmx]{graphicx}
+    %\usepackage[dvips]{graphicx}
+    \usepackage{enumerate,amssymb,amsmath,amsthm,fancyhdr}
+    \usepackage{bxpapersize}
+    \usepackage{itembkbx}
+    \usepackage{eclbkbox}
+    \usepackage{comment}
+    \usepackage{boxedminipage}
+    \usepackage{niceframe}
+    \usepackage{refract}
+    \usepackage{listings,plistings}
+    \usepackage[dvipdfmx]{hyperref}
+    \usepackage{pxjahyper} %%hyperref読み込みの直後に
+    %\usepackage[mathscr]{eucal}%筆記体使う用
+    \makeatletter
+    \renewenvironment{proof}[1][証明]{\par
+      \pushQED{\qed}%
+      \normalfont \topsep6\p@\@plus6\p@\relax
+      \trivlist
+      \item[\hskip\labelsep\indent\bfseries #1 ]
+    }{%
+      \popQED\endtrivlist\@endpefalse
+    }
+    \renewcommand{\thesection}{\arabic{section}}
+    \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+    
+    \renewcommand{\proofname}{\bfseries 証明}
+    %\renewcommand{\qedsymbol}{$($q.e.d$)$}
+    \newcommand{\OR}{\mathrm{or}}
+    \newtheorem{Prop}{命題}[section]
+    \newtheorem{Prop2}{命題}
+    \newtheorem{Lem}[Prop]{補題}
+    \newtheorem{Cor}[Prop]{系}
+    \newtheorem{Theo}[Prop]{定理}
+    \newtheorem{Axm}[Prop]{公理}
+    \newtheorem{Def}[Prop]{定義}
+    \newtheorem*{Theo2}{}
+    \newcommand{\lcm}{\rm lcm}
+    % vector
+    \def\vecbold#1{\mbox{\boldmath $#1$}}
+    % face command. all image size is (1200,900)
+    \newcommand{\kao}[2]{
+    %\fbox{
+    \begin{minipage}[c]{.10\textwidth}
+      \includegraphics[height=1.2cm,bb=0 0 300 225]{#1}
+    \end{minipage}
+    %}
+    %\fbox{
+    \begin{minipage}[c]{.85\textwidth}
+      「#2」
+    \end{minipage}
+    %}
+    \\
+    }
+    \newcommand{\kaot}[2]{
+    %\fbox{
+    \begin{minipage}[c]{.10\textwidth}
+      \includegraphics[height=1.2cm,bb=0 0 300 225]{#1}
+    \end{minipage}
+    %}
+    %\fbox{
+    \begin{minipage}[t]{.85\textwidth}
+      「#2」
+    \end{minipage}
+    %}
+    \\
+    }
+    \newtheorem{Exc}{問題}
+    %証明中補題
+    \newtheorem{myLem}{\ Lemma}
+    \newtheorem{myClaim}{\ Claim}
+    \newcommand{\Subsection}[1]{\addcontentsline{toc}{subsection}{#1}}
+    \newcommand{\Subsubsection}[1]{\addcontentsline{toc}{subsubsection}{#1}}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %\pagestyle{headings}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{document}
+    % タイトルの描画
+    \maketitle
+    \setcounter{tocdepth}{3}
+    \tableofcontents
+    \newpage
+    % ページスタイルの設定
+    \pagestyle{fancy}
+    \fancyhead{}
+    \cfoot{}
+    %\fancyhead[RE]{\rightmark}
+    %\fancyhead[LO]{\leftmark}
+    \chead[\leftmark]{\rightmark}
+    \lhead[\thepage]{}
+    \rhead[]{\thepage}
+    \renewcommand{\sectionmark}[1]{\markboth{#1}{\rightmark}}
+    \renewcommand{\subsectionmark}[1]{\markright{#1}}
+    % \markboth{}{\rightmark}
+    % \frontmatter
+    \input{prologue.tex}
+    % \mainmatter
+    \input{section1_1.tex}
+    \newpage
+    \input{section2_0.tex}
+\end{document}
